@@ -1,0 +1,54 @@
+.scrolling-banner {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 30px;
+    margin: 20px 0;
+    background: #111;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    border-radius: 3px;
+}
+
+.banner-track {
+    display: inline-block;
+    position: absolute;
+    white-space: nowrap;
+    left: 100%;
+}
+
+.banner-quote {
+    display: inline-block;
+    padding: 0 50px;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+.breaking-news {
+    color: #ff5555;
+    font-weight: bold;
+}
+
+.advert {
+    color: #ff8555;
+    font-weight: bold;
+}
+
+.time-update {
+    color: #43BD6D;
+}
+
+.banner-track {
+    transition: opacity 0.5s ease;
+    will-change: transform, opacity;
+}
+
+#news-ticker.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+#news-ticker {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}

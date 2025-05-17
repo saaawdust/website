@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>saw >:3</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="scroll-banner.css" />
+    <script src="./startup.js"></script>
+</head>
+
+<body>
+    <div class="tile-container" id="tiles"></div>
+    <div class="centered-box">
+        <div class="content">
+
+            <div class="top-nav">
+                <span class="nav-link active">main</span> /
+                <span class="nav-link">projects</span> /
+                <span class="nav-link">badges</span> /
+                <span class="nav-link">other</span>
+            </div>
+
+            <hr class="divider" />
+
+            <div class="profile-box">
+                <script>
+                    fetch('https://api.lanyard.rest/v1/users/751000055229448192')
+                        .then(res => res.json())
+                        .then(data => {
+                            const avatar = data?.data?.discord_user?.avatar;
+                            if (avatar) {
+                                const isGif = avatar.startsWith('a_');
+                                const ext = isGif ? 'gif' : 'png';
+                                const url = `https://cdn.discordapp.com/avatars/751000055229448192/${avatar}.${ext}?size=128`;
+                                document.getElementById('discord-pfp').src = url;
+                            }
+                        });
+                </script>
+                <img src="public/default.png" alt="profile" class="profile-image" id="discord-pfp" />
+                <div class="profile-info">
+                    <p id="intro">hi, I'm <span class="username">saw</span>!</p>
+                    <p id="intro_quote" class="quote">– "likes music"</p>
+                    <script>
+                        // Intro Tags
+                        function generateIntro() {
+                            const username = "saw";
+                            const introVariations = [
+                                ["Heya, I'm ", "<span class='username'>", username, "</span>", "."],
+                                ["Rise and shine, ", "<span class='username'>", username, "</span>", "..."],
+                                ["It's me Gordon, ", "<span class='username'>", username, "</span>", " from Black Mesa."],
+                                ["Dr. ", "<span class='username'>", username, "</span>", ", I presume?"],
+                                ["Time, ", "<span class='username'>", username, "</span>", "? Is it really that time again?"],
+                                ["This is ", "<span class='username'>", username, "</span>", ", your administrator."],
+                                ["The right ", "<span class='username'>", username, "</span>", " in the wrong place..."],
+                                ["They're waiting for you, ", "<span class='username'>", username, "</span>", "..."],
+                                ["Dr. ", "<span class='username'>", username, "</span>", ";"],
+
+                                ["This was a ", "<span class='username'>", username, "</span>", ""],
+                                ["", "<span class='username'>", username, "</span>", " is a potato"],
+                                ["The ", "<span class='username'>", username, "</span>", " is a lie"],
+                                ["Weighted ", "<span class='username'>", username, "</span>", " Storage Cube"]
+                            ];
+
+                            const introDescriptions = [
+                                "Yeah, you heard that right.",
+                                "Rise, and shine.",
+                                "about that beer I owed ya...",
+                                "administering the test...",
+                                "prepare for unforeseen consequences",
+                                "the resonance cascade",
+                                "can make all the difference in the world..",
+                                "subject name: saw",
+                                "i realise this moment may not be the most convenient for a heart to heart...",
+
+                                "I'm making a note here: huge success",
+                                "still alive",
+                                "the cake is a lie",
+                                "neurotoxin engaged"
+                            ];
+
+
+                            let index = Math.floor(Math.random() * introVariations.length);
+                            const variation = introVariations[index];
+                            const descVariation = introDescriptions[index] || "Is it me or is it hot in here?";
+
+                            let intro = "";
+                            variation.forEach(part => {
+                                intro += part === "saw" ? username : part;
+                            });
+
+                            return [intro, descVariation];
+                        }
+
+                        let [intro, desc] = generateIntro();
+
+                        document.getElementById('intro').innerHTML = intro;
+                        document.getElementById('intro_quote').innerHTML = `- "${desc}"`;
+                    </script>
+                    <p>
+                        <a href="#" class="profile-link">[about]</a>
+                        <a href="#" class="profile-link" id="discord-link">[discord]</a>
+                        <script>
+                            const discordLink = document.getElementById('discord-link');
+
+                            discordLink.addEventListener('click', function (e) {
+                                e.preventDefault(); 
+                                const discordId = 'sawastaken';
+
+                                navigator.clipboard.writeText(discordId)
+                                    .then(() => {
+                                        const originalText = discordLink.textContent;
+                                        discordLink.textContent = 'Copied username to clipboard!';
+
+                                        setTimeout(() => {
+                                            discordLink.textContent = originalText;
+                                        }, 2000);
+                                    })
+                                    .catch(err => {
+                                        console.error('Failed to copy: ', err);
+                                        discordLink.textContent = 'Press Ctrl+C to copy';
+                                    });
+                            });
+                        </script>
+                        <a href="https://github.com/saaawdust/" class="profile-link">[github]</a>
+                    </p>
+                </div>
+            </div>
+
+            <hr class="divider" />
+
+            <div class="main-content">
+                <div class="scrolling-banner">
+                    <div class="banner-track" id="news-ticker"></div>
+                </div>
+            </div>
+
+            <h2>Hi.. I'm saw. sawwastaken. 😼</h2>
+            <p>Apologies for that cringe introduction. I stole it from a fanfiction someone made of me.</p>
+            <p>Just another under-18 fellow, doing my own thing in my own little life. I’m not here to make a big deal
+                out of it;<span> </span>just scrolling, learning, or killing time like everyone else. Maybe I’m watching
+                weird YouTube deep dives, lurking in obscure forums, or half-heartedly pretending to be productive. The
+                internet’s a big place, and most of the time I’m just a small part of it, passing through without much
+                fuss. If we cross paths, cool. If not, that’s fine too. Either way, I’m probably overthinking this bio.
+            </p>
+
+            <hr class="divider" />
+
+            <h2>tell me more....</h2>
+            <p>Well, since you're so eager, here's 3 random facts about me that I can assure you did not know unless you
+                are extremely close to me: </p>
+            <ul>
+                <li id="Lore1">heh.</li>
+                <li id="Lore2">youre not supposed to see this.</li>
+                <li id="Lore3">if you do, welp.</li>
+            </ul>
+            <hr class="divider" />
+            <h2>oh.. and before you go- </h2>
+            <p>
+                This site's got secrets hiding in plain sight. <br>
+                • Find and click invisible buttons to unlock hidden badges <br>
+                • Certain actions trigger Easter eggs (try breaking things)<br>
+                • Some pages change if you visit at weird hours<br>
+                • There's at least one secret message only visible if you view the source code<br>
+                <br>
+                No guides, no hints—just explore and see what you stumble into. <br>
+                (Your badge collection auto-saves, so don't clear those cookies.)
+            </p>
+            <hr class="divider" />
+            <p id="copyright">copyright!</p>
+            <script>
+                document.getElementById('copyright').setHTMLUnsafe(`<b>copyright</b> (<b>c</b>) <i>sawastaken</i> ${new Date().getFullYear()}; \n<i>all rights reserved</i>`);
+
+                const loreInfo = [
+                    "I have an allergy that is pronounced the exact same as my name",
+                    "i hate spinach (unless it's with pastry)",
+                    "one side of my family traces back to the vikings",
+                    "i cannot snap my fingers for the life of me",
+                    "i am semi ambidextrous",
+                    "i have eaten exactly 2 scooby-doo action figures",
+                    "i HATE rollercoasters.",
+                    "i'm slightly double jointed",
+                    "i wrote my first computer program when i was 7 on a (nearly) 50 year old machine."
+                ]
+
+                function getRandomItems(array, count) {
+                    const shuffled = [...array].sort(() => 0.5 - Math.random());
+                    return shuffled.slice(0, count);
+                }
+
+                const randomFacts = getRandomItems(loreInfo, 3);
+
+                document.getElementById('Lore1').textContent = randomFacts[0];
+                document.getElementById('Lore2').textContent = randomFacts[1];
+                document.getElementById('Lore3').textContent = randomFacts[2];
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    const ticker = document.getElementById('news-ticker');
+                    const breakingNewsChance = 0.1;
+                    const advertChance = 0.3;
+                    let scrollAnimation;
+                    let currentItems = [];
+                    const pixelsPerSecond = 100;
+                    let lastPosition = 0;
+                    let lastTimestamp = 0;
+
+                    const breakingNewsSubjects = [
+                        "Combine forces", "Headcrabs",
+                        "Rebel forces",
+                        "Noobs",
+                        "Herobrine", "Zombie pigmen"
+                    ];
+
+                    const breakingNewsVerbs = [
+                        "spotted", "reported", "caught",
+                        "discovered", "detected", "seen",
+                        "photographed", "arrested", "contained",
+                        "neutralized", "studying", "battling"
+                    ];
+
+                    const breakingNewsLocations = [
+                        "in City 17", "at Black Mesa", "in the test chambers",
+                        "near White Forest", "at Nova Prospekt", "in the Overworld",
+                        "at the spawn point", "in the Nether",
+                        "in the Backrooms", "at Aperture Labs", "in the End dimension"
+                    ];
+
+                    const fillerNews = [
+                        "The poets have been mysteriously quiet on the subject of cheese",
+                        "Fish and chips declared national treasure",
+                        "Creeper destroys historic pixel art museum, says 'ssssorry'",
+                        "Zombie pigmen unionize, demand better Nether working conditions",
+                        "Gordon Freeman still hasn't said a word, coworkers getting concerned",
+                        "Local man tries to pay bus fare with Ender pearls, gets sent to The End",
+                        "Wither storms local bakery, demands 'soul sand cookies' recipe",
+                        "GLaDOS replaces office chairs with deadly neurotoxin dispensers at Aperture!",
+                        "Scientists create a portal to bread dimension!",
+                        "Sawwastaken elected mayor of City 17 - 'Such combine. Very oppression.'",
+                        "Spider-Jockey seen delivering Uber Eats in the Nether - 1 star rating",
+                        "Aperture Science announces new 'Bring Your Daughter to Work Day' - child testing volunteers needed",
+                        "Enderman steals Declaration of Independence - replaces with dirt block",
+                        "Local Robloxian builds working nuclear reactor - gets banned for 'exploiting physics'",
+                        "Herobrine spotted at Walmart buying Mountain Dew and Doritos",
+                        "Zombie pigmen protest Nether portal minimum wage - '1 gold nugget = slavery'",
+                        "TNT sales spike after Minecraft players discover 'demolition therapy'",
+                        "Alex caught building illegal diamond duper - 'It's not cheating, it's economics'",
+                        "TF2 Spy found dead in water - 'He could've been any one of us'",
+                        "Minecraft chickens unionize - demand better treatment from egg farms",
+                        "Local man builds functional computer in Minecraft - only plays Minecraft on it",
+                        "Portal gun misuse at office leads to 'incalculable HR violations'",
+                        "Minecraft chickens develop communism - 'All eggs are collective property'",
+                        "Gordon Freeman skips lunch queue, says that he 'didn't need to hear all that', and that he is a 'highly trained professional'!",
+                    ];
+
+                    const fillerIntros = [
+                        "BREAKING: ",
+                        "JUST IN: ",
+                        "URGENT: ",
+                        "EXCLUSIVE: ",
+                        "SHOCKING: ",
+                        "YOU WON'T BELIEVE: ",
+                        "HOLD THE PRESS: ",
+                        "STOP EVERYTHING: ",
+                        "ACTUAL NEWS: ",
+                        "FOR SOME REASON: ",
+                        "FOR GOD'S SAKE: ",
+                        "IN TODAY'S 'NEWS': ",
+                        "SURPRISE SURPRISE: ",
+                        "AS PREDICTED: ",
+                        "CLASSIC: ",
+                        "SURPRISE SURPRISE MOTHERFUCKER: ",
+                        "THIS IS FINE: ",
+                        "OH FOR FUCK'S SAKE: ",
+                        "BLOODY HELL: ",
+                        "WE INTERRUPT YOUR PROGRAM: ",
+                        "AS SEEN ON 4CHAN: ",
+                        "LIVE: "
+                    ];
+
+                    const fillerAdverts = [
+                        "Combine Civil Protection - Now hiring! Benefits include: oppression, rations, and cool masks",
+                        "Villager Trading Halls - Exploit their capitalism before they exploit yours!",
+                        "Spy's Disguise Kit - Perfect for ex-wives and war crimes!",
+                        "Headcrab Repellent - Now in lavender scent!",
+                        "Achievement Get! - Buy our sticker pack to feel accomplished!",
+                        "Respawn Insurance - Because death shouldn't cost you!",
+                        "Lag Compensation - We'll blame your bad aim on ping!"
+                    ];
+
+                    const fillerAdvertIntro = [
+                        "A SHORT MESSAGE FROM OUR SPONSOR: ",
+                        "A QUICK ADVERT: ",
+                        "HERE COMES AN AD: ",
+                        "THIS IS AN UNSKIPPABLE AD: ",
+                        "OUR SPONSOR: ",
+                        "THE SPONSOR OF TODAYS BROADCAST: ",
+                    ];
+
+                    function getBritishDateTime() {
+                        const now = new Date();
+                        const options = {
+                            timeZone: 'Europe/London',
+                            weekday: 'long',
+                            day: 'numeric',
+                            month: 'long',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        };
+                        const formatter = new Intl.DateTimeFormat('en-GB', options);
+                        return formatter.format(now) + " - London";
+                    }
+
+                    function generateBreakingNews() {
+                        const subject = randomFrom(breakingNewsSubjects);
+                        const verb = randomFrom(breakingNewsVerbs);
+                        const location = randomFrom(breakingNewsLocations);
+                        return `BREAKING: ${subject} ${verb} ${location}!`;
+                    }
+
+                    function generateAdvert() {
+                        return `${randomFrom(fillerAdvertIntro)}${randomFrom(fillerAdverts)}`;
+                    }
+
+                    function getRandomFiller() {
+                        const available = fillerNews.filter(item =>
+                            !currentItems.some(existing => existing.text.includes(item))
+                        );
+                        if (available.length === 0) return null;
+                        return randomFrom(fillerIntros) + randomFrom(available);
+                    }
+
+                    function randomFrom(arr) {
+                        return arr[Math.floor(Math.random() * arr.length)];
+                    }
+
+                    function createNewsItem() {
+                        if (Math.random() < breakingNewsChance) {
+                            return {
+                                text: generateBreakingNews(),
+                                type: 'breaking-news'
+                            };
+                        }
+
+                        if (Math.random() < advertChance) {
+                            return {
+                                text: generateAdvert(),
+                                type: 'advert'
+                            };
+                        }
+
+                        return {
+                            text: getRandomFiller() || "More news coming soon...",
+                            type: 'filler'
+                        };
+                    }
+
+                    function addNewItem() {
+                        if (currentItems.length % 5 === 0 && currentItems.length !== 0) {
+                            currentItems.push({
+                                text: getBritishDateTime(),
+                                type: 'time-update'
+                            });
+                        } else {
+                            currentItems.push(createNewsItem());
+                        }
+
+                        updateTickerContent();
+                    }
+
+                    function updateTickerContent() {
+                        ticker.innerHTML = currentItems.map(item =>
+                            `<span class="banner-quote ${item.type}">${item.text}</span>`
+                        ).join('');
+
+                        if (lastPosition !== 0) {
+                            ticker.style.transform = `translateX(${lastPosition}px)`;
+                        }
+                    }
+
+                    function startScrolling() {
+                        const viewportWidth = document.querySelector('.scrolling-banner').offsetWidth;
+
+                        function animate(timestamp) {
+                            if (!lastTimestamp) lastTimestamp = timestamp;
+                            const elapsed = timestamp - lastTimestamp;
+                            lastTimestamp = timestamp;
+
+                            lastPosition -= (pixelsPerSecond * elapsed) / 1000;
+                            const contentWidth = ticker.scrollWidth;
+
+                            if (-lastPosition > contentWidth - viewportWidth * 0.75) {
+                                addNewItem();
+                            }
+
+                            if (-lastPosition > contentWidth) {
+                                ticker.classList.add('fade-out');
+
+                                setTimeout(() => {
+                                    lastPosition = 0;
+                                    currentItems = [];
+                                    for (let i = 0; i < 5; i++) addNewItem();
+
+                                    updateTickerContent();
+                                    ticker.classList.remove('fade-out');
+                                }, 1000);
+                                return;
+                            }
+
+                            ticker.style.transform = `translateX(${lastPosition}px)`;
+                            scrollAnimation = requestAnimationFrame(animate);
+                        }
+
+                        if (currentItems.length === 0) {
+                            for (let i = 0; i < 5; i++) addNewItem();
+                        }
+
+                        if (!scrollAnimation) scrollAnimation = requestAnimationFrame(animate);
+                    }
+
+                    window.addEventListener('beforeunload', () => {
+                        if (scrollAnimation) {
+                            cancelAnimationFrame(scrollAnimation);
+                        }
+                    });
+
+                    startScrolling();
+                });
+            </script>
+
+        </div>
+    </div>
+</body>
+
+</html>

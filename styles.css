@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  background: #050505 url('public/tile.png') repeat;
+  min-height: 100vh;
+  animation: subtleFloat 25s linear infinite;
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+  color: #ccc;
+  overflow-y:scroll;
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.centered-box::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.centered-box {
+  width: 50%;
+  min-width: 300px;
+  max-width: 800px;
+  height: 100vh;
+  background-color: #040404;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #222;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+@keyframes subtleFloat {
+
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 50px 50px;
+  }
+}
+
+.top-nav {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  color: inherit;
+  font-weight: normal;
+  position: relative;
+  transition:
+    color 0.5s ease,
+    font-weight 0.5s ease;
+}
+
+.nav-link:hover {
+  color: #43BD6D;
+  font-weight: bold;
+  text-shadow: 0 0 2px rgba(67, 189, 109, 0.3);
+}
+
+.nav-link.active {
+  color: #43BD6D;
+  font-weight: bold;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 10px 0;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #111;
+  border: 1px solid #222;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.profile-image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  background: #0a0a0a;
+  margin-right: 15px;
+  box-shadow: 0 0 0 2px #040404,
+    0 0 0 3px #43BD6D;
+  border-radius: 1px;
+}
+
+.profile-info p {
+  margin: 4px 0;
+}
+
+.username {
+  color: #eee;
+  font-weight: bold;
+}
+
+.quote {
+  font-style: italic;
+  color: #888;
+}
+
+.profile-link {
+  color: #43BD6D;
+  text-decoration: none;
+  margin-right: 8px;
+  transition:
+    color 1s ease,
+}
+
+.profile-link:hover {
+  color: #43BD6D;
+  text-shadow: 0 0 3px rgba(67, 189, 109, 0.3);
+}
+
+.profile-link:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
