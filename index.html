@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <link rel="shortcut icon" href="./favicon.png" type="image/png">
     <title>saw >:3</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="scroll-banner.css" />
@@ -11,15 +13,14 @@
 </head>
 
 <body>
-    <div class="tile-container" id="tiles"></div>
     <div class="centered-box">
         <div class="content">
 
             <div class="top-nav">
-                <span class="nav-link active">main</span> /
-                <span class="nav-link">projects</span> /
-                <span class="nav-link">badges</span> /
-                <span class="nav-link">other</span>
+                <a href="#" class="nav-link active">main</a> /
+                <a href="projects.html" class="nav-link">projects</a> /
+                <a href="badges.html" class="nav-link">badges</a> /
+                <a href="other.html" class="nav-link">other</a>
             </div>
 
             <hr class="divider" />
@@ -99,13 +100,13 @@
                         document.getElementById('intro_quote').innerHTML = `- "${desc}"`;
                     </script>
                     <p>
-                        <a href="#" class="profile-link">[about]</a>
-                        <a href="#" class="profile-link" id="discord-link">[discord]</a>
+                        <a href="./about.html" class="profile-link">[about]</a>
+                        <a class="profile-link" id="discord-link">[discord]</a>
                         <script>
                             const discordLink = document.getElementById('discord-link');
 
                             discordLink.addEventListener('click', function (e) {
-                                e.preventDefault(); 
+                                e.preventDefault();
                                 const discordId = 'sawastaken';
 
                                 navigator.clipboard.writeText(discordId)
